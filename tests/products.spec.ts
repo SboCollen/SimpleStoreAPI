@@ -6,6 +6,9 @@ dotenv.config(
   {path : path.resolve(process.cwd(), 'environment/.env') } 
 );
 
+
+
+
 test('should have products', async ({ request }) => {
   // Implementation for testing product availability
   const baseUrl = process.env.BaseUrl;
