@@ -1,13 +1,5 @@
 import { test, expect } from '@playwright/test';
-import dotenv from '@dotenvx/dotenvx';
-import * as path from 'path';
-
-dotenv.config(
-  {path : path.resolve(process.cwd(), 'environment/.env') } 
-);
-
-
-
+import '../config/api.env.js'
 
 test('should have products', async ({ request }) => {
   // Implementation for testing product availability
