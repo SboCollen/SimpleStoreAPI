@@ -11,25 +11,43 @@ test.describe('GET /products (even products that are not available)', () => {
     expect(response.status()).toBe(200);
     const products = await response.json();
     expect(products.length).toBeGreaterThan(0);
-
+    
   });
 
 
-  test('should GET all the products that are not available', async ({ request }) => {
+  test('should return existing product with its properties', async ({ request }) => {
 
-    //TODO: I need to fix this code, 
-    //and why is filter() is so abstracted like this
-    //const response = await request.get(`${validatedBaseUrl}/products?inStock=false`);
-    const response = await request.get(`${validatedBaseUrl}/products`);
-
+    const productID = 3486;
+    const response = await request.get(`${validatedBaseUrl}/products/${productID}`);
+   
     expect(response.status()).toBe(200);
     const products = await response.json();
-    const outOfStockProducts = products.filter((product: { inStock: boolean }) => !product.inStock);
-
-    if(products.length === 0){
-      throw new Error('All products are in stock, no products are out of stock');
-    }
 
   });
+
+
+  test('should return an error for non-existent product ID', async ({ request }) => {
+
+    const nonExistentID = 1010101100110;
+    const response = await request.get(`${validatedBaseUrl}/products/${nonExistentID}`);
+   
+    expect(response.status()).toBe(404);
+    const products = await response.json();
+    expect(products).toHaveProperty('error');
+
+  });
+
+
+  test('should return an error for an invalid product ID', async ({ request }) => {
+
+    const invalidId = 'Yoyoyo';
+    const response = await request.get(`${validatedBaseUrl}/products/${invalidId}`);
+   
+    expect(response.status()).toBe(400);
+    const products = await response.json();
+    expect(products).toHaveProperty('error');
+
+  });
+
 
 });
