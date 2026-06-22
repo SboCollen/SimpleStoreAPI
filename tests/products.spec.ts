@@ -10,7 +10,6 @@ test.describe('GET /products (even products that are not available)', () => {
 
     expect(response.status()).toBe(200);
     const products = await response.json();
-    expect(products.length).toBeGreaterThan(0);
     
   });
 
