@@ -52,7 +52,7 @@ test.describe('Store Carts.', () => {
     });
 
     test('should add a product that is already on the cart. should get an error.', async({request}) => {
-        
+
         const productToAdd = {
                 "productId": 1225, //use new product id
                 "quantity": 4
@@ -67,6 +67,10 @@ test.describe('Store Carts.', () => {
         expect(products).toHaveProperty('error');
     });
 
+
+
+
+    
     test('should get items in a cart.', async ({ request }) => {
         const response = await request.get(`${validatedBaseUrl}/carts/o43PqgkYGuKZg8_dPa8EY/items`);
         expect(response.status()).toBe(200);
