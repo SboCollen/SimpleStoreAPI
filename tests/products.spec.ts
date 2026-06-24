@@ -4,17 +4,17 @@ import {validatedBaseUrl} from  '../config/api.env.js';
 
 test.describe('GET /products (even products that are not available)', () => { 
 
-  test('should have products', async ({ request }) => {
+  test('should get all products', async ({ request }) => {
 
     const response = await request.get(`${validatedBaseUrl}/products`);
 
     expect(response.status()).toBe(200);
     const products = await response.json();
-    
+    expect(products.length).toBeGreaterThan(0);
   });
 
 
-  test('should return existing product with its properties', async ({ request }) => {
+  test('should return existing product by id with its properties', async ({ request }) => {
 
     const productID = 3486;
     const response = await request.get(`${validatedBaseUrl}/products/${productID}`);
