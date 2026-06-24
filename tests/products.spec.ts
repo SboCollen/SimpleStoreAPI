@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import {validatedBaseUrl} from  '../config/api.env.js';
 
 
-test.describe('GET /products (even products that are not available)', () => { 
+test.describe('Store Products', () => { 
 
   test('should get all products', async ({ request }) => {
 
