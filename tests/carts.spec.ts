@@ -69,8 +69,6 @@ test.describe('Store Carts.', () => {
 
 
 
-
-    
     test('should get items in a cart.', async ({ request }) => {
         const response = await request.get(`${validatedBaseUrl}/carts/o43PqgkYGuKZg8_dPa8EY/items`);
         expect(response.status()).toBe(200);
@@ -80,8 +78,11 @@ test.describe('Store Carts.', () => {
 
     });
     
-    
+    test('should delete a product from the cart.', async ({ request }) => {
 
+        const response = await request.delete(`${validatedBaseUrl}/carts/o43PqgkYGuKZg8_dPa8EY`);
+        expect(response.status()).toBe(200);   
+              
+    });
 
 });
-
