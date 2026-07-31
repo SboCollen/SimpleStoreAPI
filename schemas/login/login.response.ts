@@ -13,3 +13,5 @@ const loginResponse = z.object(
         image: z.string(),
     }
 )
+
+type loginResponse = z.infer<typeof loginResponse>;

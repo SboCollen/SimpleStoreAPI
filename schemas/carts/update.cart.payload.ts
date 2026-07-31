@@ -13,3 +13,5 @@ const updateCartPayload = z.object(
         )
     }
 )
+
+type updateCartPayload = z.infer<typeof updateCartPayload>;

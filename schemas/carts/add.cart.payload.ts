@@ -13,5 +13,5 @@ const addCartPayload = z.object({
     )
 })
  
-
+type addCartPayload = z.infer<typeof addCartPayload>;
 

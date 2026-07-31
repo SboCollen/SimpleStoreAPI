@@ -5,4 +5,4 @@ const loginPayload = z.object({
   password: z.string()
 });
 
-
+type loginPayload = z.infer<typeof loginPayload>;

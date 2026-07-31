@@ -52,7 +52,7 @@ const productResponse = z.object({
   ),
 })
 
-
+type productResponse = z.infer<typeof productResponse>;
 
 
 

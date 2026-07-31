@@ -23,3 +23,5 @@ const cartResponse = z.object({
     totalProducts: z.number().positive(),
     totalQuantity: z.number().positive()
 })
+
+type cartResponse = z.infer<typeof cartResponse>;
